@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_project/chatlist.dart';
 
 class Whatsapp extends StatelessWidget {
   const Whatsapp({super.key});
@@ -13,7 +14,7 @@ class Whatsapp extends StatelessWidget {
         foregroundColor: Colors.white,
         actions: [IconButton(onPressed: () {}, icon:  const Icon(Icons.camera_alt_outlined)),
         IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
 
         
         ],
@@ -22,7 +23,7 @@ class Whatsapp extends StatelessWidget {
       
       Container(
         height: 200,
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.all(20),
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,9 +31,11 @@ class Whatsapp extends StatelessWidget {
             Row(
                 children: [
                 
-                CircleAvatar(),
+                CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),),
+                SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start ,
                   children: [
                     Text("Safareena"),
                     Text("hello"),
@@ -53,7 +56,9 @@ class Whatsapp extends StatelessWidget {
                   
                   CircleAvatar(),
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start ,
+
                     children: [
                       
                       Text("Jaseela"),
@@ -71,6 +76,8 @@ class Whatsapp extends StatelessWidget {
                 children: [
                   CircleAvatar(),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start ,
+
                     children: [
                       Text("Yasmin"),
                       Text("good morning"),
@@ -88,9 +95,15 @@ class Whatsapp extends StatelessWidget {
       
       
 
-      
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Chatlist(),));
+        
+      },child: Icon(Icons.ac_unit_outlined),),
       
       
     );
   }
 }
+
+
+
